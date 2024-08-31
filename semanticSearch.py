@@ -10,8 +10,6 @@ from sentence_transformers import util
 import re
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-
-
 import streamlit as st
 
 st.set_page_config(page_title="Semantic Search Engine (Tom Hanks Movie Database)", page_icon="🐍", layout="wide")
@@ -39,8 +37,6 @@ def set_session_state():
         st.session_state.tags = para['tags'][0]
     if 'page' in para:
         st.experimental_set_query_params()
-
-
 
 def chunk_text(text):
     #print (text[:20])
@@ -213,18 +209,11 @@ def return_results (search_results, sentences):
   strFinal = str1.join(txt)
   return df, strFinal
 
-  
-
 def main():
 # Page setup
     st.title("Semantic Search Engine")
 
     set_session_state()
-
-    #if st.session_state.config is None:
-    #  st.session_state.config = 'Semantic Search Engine'
-    #  st.set_page_config(page_title='Semantic Search Engine')      
-    
 
     if st.session_state.search is None:
         search = st.text_input('Enter Search words:')
@@ -232,11 +221,11 @@ def main():
     else:
         search = st.text_input('Enter Search words:', st.session_state.search)
 
-
     query_text = search
     goSearch = st.button('Search')
     sentences = []
     df = pd.DataFrame()
+
     if st.session_state.db is None:
         df = get_corpus()
         df.to_csv (DATA_DIR + r"\movies_db.csv")    
