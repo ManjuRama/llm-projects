@@ -145,7 +145,7 @@ def get_corpus (corpus_loc = CORPUS):
         "\u3001",  # Ideographic comma
         "\uff0e",  # Fullwidth full stop
         "\u3002",  # Ideographic full stop
-        "",
+        ,
     ],
     # Existing args
   )
