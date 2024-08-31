@@ -184,18 +184,13 @@ def get_corpus (corpus_loc = CORPUS):
  
   print ("Len is: ", len(contents_array), " embeddings", len (embeddings))
 
-  
+  # create data results Dataframe
   data = {
-
     "Chunk ID": chunkIDs,
-
     "Filename": fileNames,
-
     "sentences": contents_array,
-
     "embeddings": list (embeddings),
-
-}
+   }
   df = pd.DataFrame (data)
   return df
 
@@ -221,9 +216,6 @@ def return_results (search_results, sentences):
 
 
   strFinal = str1.join(txt)
-
-  print ("end display result")
-
   return df, strFinal
 
   
